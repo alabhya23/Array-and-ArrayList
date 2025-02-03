@@ -1,0 +1,81 @@
+// Name: Alabhya Sharma
+// PRN: 23070126010
+// Branch: AIML-A1
+// Batch: 2023-27
+
+import java.util.*;
+
+class ArrayFunctions {
+    
+    // Display the array
+    void display(ArrayList<Integer> array) {
+        System.out.println("Array is: " + array);
+    }
+
+    // Separate Even and Odd Numbers into two ArrayLists
+    void evenOdd(int[] array) {
+        ArrayList<Integer> even = new ArrayList<>();
+        ArrayList<Integer> odd = new ArrayList<>();
+
+        for (int num : array) {
+            if (num % 2 == 0) {
+                even.add(num);
+            } else {
+                odd.add(num);
+            }
+        }
+
+        System.out.println("Even Numbers: " + even);
+        System.out.println("Odd Numbers: " + odd);
+    }
+
+    // Find Minimum Element and its Index
+    void findMinAndIndex(int[] array) {
+        int minValue = array[0];
+        int minIndex = 0;
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < minValue) {
+                minValue = array[i];
+                minIndex = i;
+            }
+        }
+        System.out.println("Minimum value: " + minValue + " at index: " + minIndex);
+    }
+
+    // Find Neighboring Numbers with the Smallest Distance
+    int findSmallestDistanceIndex(int[] array) {
+        if (array.length < 2) return -1;
+
+        int minIndex = 0;
+        int minDistance = Math.abs(array[1] - array[0]);
+
+        for (int i = 1; i < array.length - 1; i++) {
+            int distance = Math.abs(array[i + 1] - array[i]);
+            if (distance < minDistance) {
+                minDistance = distance;
+                minIndex = i;
+            }
+        }
+        return minIndex;
+    }
+
+    // Convert Array to ArrayList & Vice Versa
+    void convertArrayToArrayList(int[] array) {
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        for (int num : array) {
+            arrayList.add(num);
+        }
+        System.out.println("Converted ArrayList: " + arrayList);
+    }
+
+    public static void main(String[] args) {
+        ArrayFunctions af = new ArrayFunctions();
+        int[] array = {3, 8, 1, 7, 4, 2};
+
+        af.evenOdd(array);
+        af.findMinAndIndex(array);
+        int index = af.findSmallestDistanceIndex(array);
+        System.out.println("Index of first number with smallest distance: " + index);
+        af.convertArrayToArrayList(array);
+    }
+}
