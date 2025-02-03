@@ -16,5 +16,3 @@ This repository contains Java programs that perform the following operations:
 - **Branch:** AIML-A1
 - **Batch:** 2023-27
 
-### GitHub Repository:
-[GitHub Repository Link Here]
